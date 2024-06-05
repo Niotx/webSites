@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with {{ match.username }}</title>
+</head>
+<body>
+    <h1>Chat with {{ match.username }}</h1>
+    <div>
+        <ul>
+            {% for message in chat_history %}
+                <li><strong>{{ message.sender.username }}:</strong> {{ message.message }} <em>{{ message.timestamp }}</em></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.message.label }} {{ form.message() }}
+        {{ form.submit() }}
+    </form>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

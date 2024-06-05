@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matches</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Matches</h2>
+        <ul class="list-group">
+            {% for match in matches %}
+            <li class="list-group-item">
+                {{ match.username }} - {{ match.email }}
+                <a href="{{ url_for('chat', match_id=match.id) }}" class="btn btn-primary btn-sm">Chat</a>
+                <a href="{{ url_for('report', match_id=match.id) }}" class="btn btn-danger btn-sm">Report</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

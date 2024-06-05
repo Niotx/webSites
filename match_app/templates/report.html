@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Report {{ match.username }}</h2>
+        <form method="POST" action="{{ url_for('report', match_id=match.id) }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.reason.label(class="form-control-label") }}
+                {{ form.reason(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-danger") }}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
